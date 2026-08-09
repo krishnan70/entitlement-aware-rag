@@ -23,7 +23,9 @@ The central question this material exists to answer:
 | [`evaluation/`](evaluation/) | Security metric definitions, the entitlement-aware eval record schema, example eval cases, and a red-team attack catalog |
 | [`reference/`](reference/) | Normalized security descriptor, security telemetry event schema, and 14 questions to ask vendors |
 
-Start with [`slides/entitlement-aware-rag-course.pdf`](slides/entitlement-aware-rag-course.pdf). The speaker notes in the PPTX carry the full narration — the PDF is the visual layer only.
+Start with [`slides/entitlement-aware-rag-course.pdf`](slides/entitlement-aware-rag-course.pdf). 
+
+Reach out to Author for The speaker notes in the PPTX and recording of the full narration — the PDF is the visual layer only.
 
 ---
 
