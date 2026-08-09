@@ -18,7 +18,7 @@ The central question this material exists to answer:
 
 | Path | Contents |
 |---|---|
-| [`slides/`](slides/) | The full 3-hour course deck (88 slides, PDF + PPTX) and a companion quiz deck (13 questions with answers) |
+| [`slides/`](slides/) | The full 3-hour course deck and a companion quiz deck (13 questions with answers) |
 | [`checklists/`](checklists/) | Production readiness checklist — 30 checks across identity, ingestion, retrieval, generation, cache, evaluation, monitoring |
 | [`evaluation/`](evaluation/) | Security metric definitions, the entitlement-aware eval record schema, example eval cases, and a red-team attack catalog |
 | [`reference/`](reference/) | Normalized security descriptor, security telemetry event schema, and 14 questions to ask vendors |
