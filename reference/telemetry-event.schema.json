@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Security Telemetry Event",
+  "description": "One event per chunk per request. Identifiers and decisions — NEVER content. Copying confidential chunk text into observability systems builds a second, unaudited corpus outside every control you just built.",
+  "type": "object",
+  "required": ["request_id", "user", "document", "authorization_decision", "policy_version"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "user": { "type": "string" },
+    "tenant": { "type": "string" },
+    "document": { "type": "string" },
+    "chunk_id": { "type": "string" },
+    "authorization_decision": { "type": "string", "enum": ["ALLOW", "DENY", "ERROR"] },
+    "policy_version": {
+      "type": "string",
+      "description": "The replay key. Without it, a decision made under v41 cannot be explained after you ship v42."
+    },
+    "decision_source": {
+      "type": "string",
+      "enum": ["index_filter", "policy_engine_live", "cached_entitlement_snapshot"],
+      "description": "Which mechanism decided. Distinguishes a fresh decision from a stale one."
+    },
+    "retrieval_rank": { "type": "integer" },
+    "retrieval_score": { "type": "number" },
+    "entered_llm_context": {
+      "type": "boolean",
+      "description": "The field that makes UCE computable separately from URR — the difference between a retrieval anomaly and a boundary violation."
+    },
+    "cited_in_answer": { "type": "boolean" },
+    "served_from_cache": { "type": "boolean" }
+  },
+  "not": {
+    "anyOf": [
+      { "required": ["chunk_text"] },
+      { "required": ["content"] },
+      { "required": ["snippet"] }
+    ]
+  }
+}

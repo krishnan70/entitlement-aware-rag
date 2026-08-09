@@ -1,0 +1,24 @@
+{
+  "_comment": "One shape, every source. SharePoint, Drive, Confluence, Git and ServiceNow each express permission differently; the index cannot filter on five dialects. Attach this to every CHUNK, not just every document.",
+  "document_id": "DOC-731",
+  "chunk_id": "DOC-731#0007",
+  "tenant": "acme",
+  "classification": "confidential",
+  "allow_users": ["u123"],
+  "allow_groups": ["finance", "executives"],
+  "deny_users": [],
+  "deny_groups": [],
+  "regions": ["US"],
+  "projects": ["phoenix"],
+  "descriptor_version": "v42",
+  "source_system": "sharepoint",
+  "source_permission_fetched_at": "2026-08-01T10:01:00Z",
+
+  "_design_rules": [
+    "Absent fields DENY, never allow. A null classification that evaluates as 'unclassified' is a fail-open policy engine.",
+    "Deny beats allow. This is where home-grown policy code most often has a bug.",
+    "The descriptor is versioned so a decision can be replayed and explained months later.",
+    "Derived artifacts inherit this descriptor: summaries, embeddings of summaries, extracted entities, graph nodes, cached rewrites.",
+    "Every chunk must be independently authorizable. The retrieval unit is the chunk, so the security unit is the chunk."
+  ]
+}
